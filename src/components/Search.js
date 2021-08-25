@@ -32,7 +32,6 @@ export default function Search() {
                 else{
                     setQuotes(data);
                 }
-                setQuotes(data);
             }
             catch(err){
                 setError(err);

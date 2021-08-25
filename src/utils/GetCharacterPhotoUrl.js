@@ -1,7 +1,8 @@
-export default function GetCharacterPhotoUrl(characterName) {
+export default function GetCharacterPhotoUrl(characterName, animeName) {
+    characterName = characterName.replace(/ū/g,"uu");
     const name = characterName.split(' ').join('%');
-    return fetch(`https://api.jikan.moe/v3/search/character?q=${name}&limit=1`)
+    return fetch(`https://api.jikan.moe/v3/search/character?q=${name}&page=1`)
     .then(response => response.json())
-    .then(response => response.results[0].image_url)
-    .catch(err => null)
+    .then(response => response.results.find((character)=>character.anime.find(anime => anime.name === animeName)).image_url)
+    .catch(() => null)
 }
