@@ -7,7 +7,7 @@ export default function QuoteContainer(props) {
                 :
                 <p className="text-center">Couldn't find the photo</p>
             }
-            <p className="mt-4 text-2xl text-gray-200 italic">"{quote}"</p>
+            <p className="mt-4 text-2xl italic">"{quote}"</p>
             <p className="mt-2 text-lg">{character}</p>
             <p className="text-sm">{anime}</p>
         </div>

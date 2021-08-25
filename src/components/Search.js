@@ -1,6 +1,7 @@
 import { useState } from "react"
 import GetQuoteByCharacterName from '../utils/GetQuoteByCharacterName'
 import GetQuoteByAnimeName from '../utils/GetQuoteByAnimeName'
+import GetCharacterPhotoUrl from '../utils/GetCharacterPhotoUrl'
 import Spinner from "./LoadingSpinner";
 import QuoteContainer from "./QuoteContainer";
 
@@ -15,7 +16,6 @@ export default function Search() {
         if(searchValue)
         {
             setError(null);
-            setSearchValue('');
             setIsLoading(true);
             try{
                 let data;
@@ -27,17 +27,29 @@ export default function Search() {
                 }
                 if(data.error)
                 {
-                    setError(data.error) 
+                    setError(data.error);
+                    setIsLoading(false);
                 }
                 else{
                     setQuotes(data);
+                    setIsLoading(false);
+                    const charactersPhotoToFetch = new Set(data.map(character => character.character));
+                    charactersPhotoToFetch.forEach(async (characterName,index)=>{
+                        const animeName = data.find(item => item.character === characterName).anime;
+                        const photoUrl = await GetCharacterPhotoUrl(characterName, animeName);
+                        await new Promise(resolve => setTimeout(resolve,(index+1)*500));
+                        await data.forEach((character)=>{
+                            if(character.character === characterName && character.anime.match(animeName))
+                            {
+                                character.photoUrl = photoUrl;
+                            }
+                        })
+                        setQuotes(data);
+                    });
                 }
             }
             catch(err){
                 setError(err);
-            }
-            finally{
-                setIsLoading(false);
             }
         }
     }
