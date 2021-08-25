@@ -1,2 +1,4 @@
 -next page
--characters photo
+-optimalization requests for photos
+-photo in searching by anime
+-changing char type to utf-8 for example Yūki to Yuuki

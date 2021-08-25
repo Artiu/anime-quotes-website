@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import GetRandomQuotes from "../utils/GetRandomQuote";
 import Spinner from "./LoadingSpinner";
 import QuoteContainer from "./QuoteContainer";
+import GetCharacterPhotoUrl from "../utils/GetCharacterPhotoUrl";
 
 export default function Home(){
     const [randomQuotes, setRandomQuotes] = useState([]);
