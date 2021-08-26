@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.css": "/anime-quotes-website/static/css/main.94632c2d.chunk.css",
+    "main.js": "/anime-quotes-website/static/js/main.37644306.chunk.js",
+    "main.js.map": "/anime-quotes-website/static/js/main.37644306.chunk.js.map",
+    "runtime-main.js": "/anime-quotes-website/static/js/runtime-main.3604df29.js",
+    "runtime-main.js.map": "/anime-quotes-website/static/js/runtime-main.3604df29.js.map",
+    "static/js/2.26367aa0.chunk.js": "/anime-quotes-website/static/js/2.26367aa0.chunk.js",
+    "static/js/2.26367aa0.chunk.js.map": "/anime-quotes-website/static/js/2.26367aa0.chunk.js.map",
+    "index.html": "/anime-quotes-website/index.html",
+    "static/css/main.94632c2d.chunk.css.map": "/anime-quotes-website/static/css/main.94632c2d.chunk.css.map",
+    "static/js/2.26367aa0.chunk.js.LICENSE.txt": "/anime-quotes-website/static/js/2.26367aa0.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.3604df29.js",
+    "static/js/2.26367aa0.chunk.js",
+    "static/css/main.94632c2d.chunk.css",
+    "static/js/main.37644306.chunk.js"
+  ]
+}
