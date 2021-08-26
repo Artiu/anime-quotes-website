@@ -1,4 +1,4 @@
-export default function GetRandomQuotes() {
-    return fetch('https://animechan.vercel.app/api/quotes')
+export default function GetRandomQuote() {
+    return fetch('https://animechan.vercel.app/api/random')
     .then(response => response.json())
 }

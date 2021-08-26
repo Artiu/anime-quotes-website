@@ -11,5 +11,5 @@ export default async function GetCharacterPhotoUrl(characterName, animeName) {
     return await fetch(`https://api.jikan.moe/v3/search/character?q=${name}&page=1`, { signal })
     .then(response => response.json())
     .then(response => response.results.find((character)=>character.anime.find(anime => anime.name.toLowerCase().match(animeName))).image_url)
-    .catch((err)=>null)
+    .catch(()=>null)
 }
