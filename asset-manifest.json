@@ -1,20 +1,21 @@
 {
   "files": {
-    "main.css": "/anime-quotes-website/static/css/main.94632c2d.chunk.css",
-    "main.js": "/anime-quotes-website/static/js/main.23653416.chunk.js",
-    "main.js.map": "/anime-quotes-website/static/js/main.23653416.chunk.js.map",
+    "main.css": "/anime-quotes-website/static/css/main.dcb06a92.chunk.css",
+    "main.js": "/anime-quotes-website/static/js/main.a9b20229.chunk.js",
+    "main.js.map": "/anime-quotes-website/static/js/main.a9b20229.chunk.js.map",
     "runtime-main.js": "/anime-quotes-website/static/js/runtime-main.3604df29.js",
     "runtime-main.js.map": "/anime-quotes-website/static/js/runtime-main.3604df29.js.map",
     "static/js/2.a483c485.chunk.js": "/anime-quotes-website/static/js/2.a483c485.chunk.js",
     "static/js/2.a483c485.chunk.js.map": "/anime-quotes-website/static/js/2.a483c485.chunk.js.map",
     "index.html": "/anime-quotes-website/index.html",
-    "static/css/main.94632c2d.chunk.css.map": "/anime-quotes-website/static/css/main.94632c2d.chunk.css.map",
-    "static/js/2.a483c485.chunk.js.LICENSE.txt": "/anime-quotes-website/static/js/2.a483c485.chunk.js.LICENSE.txt"
+    "static/css/main.dcb06a92.chunk.css.map": "/anime-quotes-website/static/css/main.dcb06a92.chunk.css.map",
+    "static/js/2.a483c485.chunk.js.LICENSE.txt": "/anime-quotes-website/static/js/2.a483c485.chunk.js.LICENSE.txt",
+    "static/media/menu.f8235882.svg": "/anime-quotes-website/static/media/menu.f8235882.svg"
   },
   "entrypoints": [
     "static/js/runtime-main.3604df29.js",
     "static/js/2.a483c485.chunk.js",
-    "static/css/main.94632c2d.chunk.css",
-    "static/js/main.23653416.chunk.js"
+    "static/css/main.dcb06a92.chunk.css",
+    "static/js/main.a9b20229.chunk.js"
   ]
 }
