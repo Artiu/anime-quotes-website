@@ -59,7 +59,7 @@ export default function Search() {
             {isLoading ? 
             <Spinner fullScreen/> : 
                 error ? <p className="text-center text-2xl text-red-600 mt-2">{error}</p> :
-                <div className="flex flex-wrap gap-12 justify-center mt-8">
+                <div className="lg:grid lg:grid-cols-3 flex flex-col gap-12 justify-center mt-8">
                 {quotes.map((quote, index)=>{
                     return <QuoteContainer quote={quote} key={index}/>
                 })}

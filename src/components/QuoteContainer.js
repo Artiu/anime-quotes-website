@@ -7,15 +7,16 @@ export default function QuoteContainer(props) {
     const [isPhotoLoading, setIsPhotoLoading] = useState(true);
     const [photoUrl, setPhotoUrl] = useState(null);
     useEffect(()=>{
+        //added delay because of api requests limit
         setTimeout(async ()=>{
             const photoUrl = await GetCharacterPhotoUrl(character, anime);
             setPhotoUrl(photoUrl);
             setIsPhotoLoading(false);
-        },delay*500)
+        },delay*1000)
     // eslint-disable-next-line react-hooks/exhaustive-deps
     },[])
     return (
-        <div className="w-full xl:w-96 p-5 bg-blue-500 flex flex-col justify-between">
+        <div className="mx-auto w-full xl:w-96 p-5 bg-blue-500 flex flex-col justify-between">
             <div>
                 {isPhotoLoading ? 
                 <div className="relative w-20 h-96 mx-auto flex items-center">

@@ -1,2 +1,2 @@
 -next page
--home page
+-home page - images optimization
