@@ -79,7 +79,7 @@ export default function Search() {
                             return <QuoteContainer quote={quote} key={index}/>
                         })}
                     </div>
-                    <div className="mx-auto w-max mt-12 flex gap-12">
+                    <div className="mx-auto w-max mt-12 flex flex-col gap-6 md:flex-row md:gap-12">
                         {page > 1 &&  <button className="mx-auto w-44 py-3 bg-blue-500 hover:bg-blue-600" onClick={()=>{setPage(page => page - 1)}}>Previous page</button>}
                         {quotes.length === 10 && <button className="mx-auto w-44 py-3 bg-blue-500 hover:bg-blue-600" onClick={()=>setPage(page => page + 1)}>Next page</button>}
                     </div>

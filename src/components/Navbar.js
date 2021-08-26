@@ -1,5 +1,6 @@
 import { createRef } from "react";
 import { Link } from "react-router-dom";
+import menu from '../menu.svg'
 
 function StyledLink({ to, children, onClick }){
     return (
@@ -17,7 +18,7 @@ export default function Navbar(){
         <nav className="w-full h-14 border-b-2 border-gray-400 px-4 flex justify-between items-center sticky">
             <p className="text-2xl font-semibold italic">Anime quotes</p>
             <button className="md:hidden" onClick={menuStateChange}>
-                <img src="/menu.svg" alt="menu"/>
+                <img src={menu} alt="menu"/>
             </button>
             <div ref={menuRef} className="fixed top-0 left-full w-screen h-screen transition-all duration-700 bg-blue-900 md:bg-transparent md:w-auto md:h-auto md:static flex flex-col items-center gap-2 md:flex-row md:gap-5">
                 <button className="text-3xl self-end mr-10 md:hidden" onClick={menuStateChange}>x</button>
