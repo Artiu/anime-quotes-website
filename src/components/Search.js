@@ -12,7 +12,7 @@ export default function Search() {
     const [option, setOption] = useState('character');
     const [page, setPage] = useState(1);
     
-    const getQuotes = async (pageNumber = page) => {
+    const getQuotes = async () => {
         if(searchValue)
         {
             setError(null);
@@ -20,10 +20,10 @@ export default function Search() {
             try{
                 let data;
                 if(option === 'character'){
-                    data = await GetQuoteByCharacterName(searchValue, pageNumber);
+                    data = await GetQuoteByCharacterName(searchValue, page);
                 }
                 else{
-                    data = await GetQuoteByAnimeName(searchValue, pageNumber);
+                    data = await GetQuoteByAnimeName(searchValue, page);
                 }
                 if(data.error)
                 {

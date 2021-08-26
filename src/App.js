@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { HashRouter, Route, Switch } from "react-router-dom";
 import About from "./components/About";
 import Home from "./components/Home";
 import Navbar from "./components/Navbar";
@@ -7,7 +7,7 @@ import Search from "./components/Search";
 export default function App() {
     return (
         <div className="min-h-screen w-full bg-blue-900 text-white">
-            <Router>
+            <HashRouter basename="/">
                 <Navbar/>
                 <Switch>
                     <Route exact path="/">
@@ -20,7 +20,7 @@ export default function App() {
                         <Search/>
                     </Route>
                 </Switch>
-            </Router>
+            </HashRouter>
         </div>
     )
 }
