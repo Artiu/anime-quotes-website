@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import GetQuoteByCharacterName from '../utils/GetQuoteByCharacterName'
 import GetQuoteByAnimeName from '../utils/GetQuoteByAnimeName'
 import Spinner from "./LoadingSpinner";
@@ -10,8 +10,9 @@ export default function Search() {
     const [isLoading, setIsLoading] = useState(false);
     const [error, setError] = useState(null);
     const [option, setOption] = useState('character');
-    const handleSubmit = async (event) => {
-        event.preventDefault();
+    const [page, setPage] = useState(1);
+    
+    const getQuotes = async (pageNumber = page) => {
         if(searchValue)
         {
             setError(null);
@@ -19,10 +20,10 @@ export default function Search() {
             try{
                 let data;
                 if(option === 'character'){
-                    data = await GetQuoteByCharacterName(searchValue);
+                    data = await GetQuoteByCharacterName(searchValue, pageNumber);
                 }
                 else{
-                    data = await GetQuoteByAnimeName(searchValue);
+                    data = await GetQuoteByAnimeName(searchValue, pageNumber);
                 }
                 if(data.error)
                 {
@@ -45,6 +46,19 @@ export default function Search() {
             }
         }
     }
+    const handleSubmit = (event) =>{
+        event.preventDefault();
+        if(page !== 1){
+            setPage(1);
+        }
+        else{
+            getQuotes();
+        }
+    }
+    useEffect(()=>{
+        getQuotes();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    },[page])
     return (
         <div className="container mx-auto p-5">
             <h1 className="text-4xl text-center">Search quote</h1>
@@ -59,11 +73,17 @@ export default function Search() {
             {isLoading ? 
             <Spinner fullScreen/> : 
                 error ? <p className="text-center text-2xl text-red-600 mt-2">{error}</p> :
-                <div className="lg:grid lg:grid-cols-3 flex flex-col gap-12 justify-center mt-8">
-                {quotes.map((quote, index)=>{
-                    return <QuoteContainer quote={quote} key={index}/>
-                })}
-            </div>
+                <>
+                    <div className="lg:grid lg:grid-cols-3 flex flex-col gap-12 justify-center mt-8">
+                        {quotes.map((quote, index)=>{
+                            return <QuoteContainer quote={quote} key={index}/>
+                        })}
+                    </div>
+                    <div className="mx-auto w-max mt-12 flex gap-12">
+                        {page > 1 &&  <button className="mx-auto w-44 py-3 bg-blue-500 hover:bg-blue-600" onClick={()=>{setPage(page => page - 1)}}>Previous page</button>}
+                        {quotes.length === 10 && <button className="mx-auto w-44 py-3 bg-blue-500 hover:bg-blue-600" onClick={()=>setPage(page => page + 1)}>Next page</button>}
+                    </div>
+                </>
             }
         </div>
     )
