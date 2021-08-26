@@ -1,7 +1,6 @@
 import { useState } from "react"
 import GetQuoteByCharacterName from '../utils/GetQuoteByCharacterName'
 import GetQuoteByAnimeName from '../utils/GetQuoteByAnimeName'
-import GetCharacterPhotoUrl from '../utils/GetCharacterPhotoUrl'
 import Spinner from "./LoadingSpinner";
 import QuoteContainer from "./QuoteContainer";
 
@@ -28,28 +27,21 @@ export default function Search() {
                 if(data.error)
                 {
                     setError(data.error);
-                    setIsLoading(false);
                 }
                 else{
-                    setQuotes(data);
-                    setIsLoading(false);
                     const charactersPhotoToFetch = new Set(data.map(character => character.character));
-                    charactersPhotoToFetch.forEach(async (characterName,index)=>{
-                        const animeName = data.find(item => item.character === characterName).anime;
-                        const photoUrl = await GetCharacterPhotoUrl(characterName, animeName);
-                        await new Promise(resolve => setTimeout(resolve,(index+1)*500));
-                        await data.forEach((character)=>{
-                            if(character.character === characterName && character.anime.match(animeName))
-                            {
-                                character.photoUrl = photoUrl;
-                            }
-                        })
-                        setQuotes(data);
-                    });
+                    const setCopy = [...charactersPhotoToFetch];
+                    data.forEach((character)=>{
+                        character.delay = setCopy.indexOf(character.character);
+                    })
+                    setQuotes(data);
                 }
             }
             catch(err){
                 setError(err);
+            }
+            finally{
+                setIsLoading(false);
             }
         }
     }
@@ -64,7 +56,8 @@ export default function Search() {
                 <input type="text" autoFocus className="outline-none bg-blue-700 px-2 py-1 w-full md:w-1/2 rounded" placeholder={`Search by ${option} name...`} value={searchValue} onChange={e=>{setSearchValue(e.target.value)}}/>
                 <input type="submit" value="Search" className="mx-auto md:mx-0 w-max bg-blue-700 px-10 py-1 hover:bg-blue-600 cursor-pointer rounded"/>
             </form>
-            {isLoading ? <Spinner/> : 
+            {isLoading ? 
+            <Spinner fullScreen/> : 
                 error ? <p className="text-center text-2xl text-red-600 mt-2">{error}</p> :
                 <div className="flex flex-wrap gap-12 justify-center mt-8">
                 {quotes.map((quote, index)=>{
