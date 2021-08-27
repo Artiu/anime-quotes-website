@@ -27,7 +27,13 @@ export default function Search() {
                 }
                 if(data.error)
                 {
-                    setError(data.error);
+                    if(data.error.message)
+                    {
+                        setError(data.error.message);
+                    }
+                    else{
+                        setError(data.error);
+                    }
                 }
                 else{
                     const charactersPhotoToFetch = new Set(data.map(character => character.character));

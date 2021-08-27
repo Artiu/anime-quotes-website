@@ -13,7 +13,13 @@ export default function Home(){
         try{
             let data = await GetRandomQuote();
             if(data.error) {
-                setError(data.error);
+                if(data.error.message)
+                {
+                    setError(data.error.message);
+                }
+                else{
+                    setError(data.error);
+                }
             }
             else{
                 setQuote(data);
