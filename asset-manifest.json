@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/anime-quotes-website/static/css/main.dcb06a92.chunk.css",
-    "main.js": "/anime-quotes-website/static/js/main.c170736b.chunk.js",
-    "main.js.map": "/anime-quotes-website/static/js/main.c170736b.chunk.js.map",
+    "main.js": "/anime-quotes-website/static/js/main.ad852743.chunk.js",
+    "main.js.map": "/anime-quotes-website/static/js/main.ad852743.chunk.js.map",
     "runtime-main.js": "/anime-quotes-website/static/js/runtime-main.3604df29.js",
     "runtime-main.js.map": "/anime-quotes-website/static/js/runtime-main.3604df29.js.map",
     "static/js/2.a483c485.chunk.js": "/anime-quotes-website/static/js/2.a483c485.chunk.js",
@@ -16,6 +16,6 @@
     "static/js/runtime-main.3604df29.js",
     "static/js/2.a483c485.chunk.js",
     "static/css/main.dcb06a92.chunk.css",
-    "static/js/main.c170736b.chunk.js"
+    "static/js/main.ad852743.chunk.js"
   ]
 }
