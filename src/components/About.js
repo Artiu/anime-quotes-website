@@ -6,7 +6,7 @@ export default function About() {
                 Anime quotes is website where you can find quotes said by your favourite anime character. To get quotes I'm using
                 <a href="https://animechan.vercel.app" className="text-purple-500 font-semibold"> Anime chan API </a>
                 and to get characters picture 
-                <a href="https://jikan.docs.apiary.io" className="text-purple-500 font-semibold"> Jikan - Unofficial MyAnimeList.net REST API </a>
+                <a href="https://anilist.gitbook.io/anilist-apiv2-docs/" className="text-purple-500 font-semibold"> Anilist GraphQL API</a>
             </p>
         </div>
     )

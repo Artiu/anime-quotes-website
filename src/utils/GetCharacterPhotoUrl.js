@@ -1,15 +1,34 @@
-export default async function GetCharacterPhotoUrl(characterName, animeName) {
+export default async function getCharacterPhotoUrl(characterName) {
     characterName = characterName.replace(/ū/g,"uu");
-    const name = characterName.split(' ').join('%');
-    animeName = animeName.toLowerCase();
 
-    const controller = new AbortController();
-    const signal = controller.signal;
+    const query = `
+    query{
+        Page(page: 1) {
+            characters(search: "${characterName}") {
+                image {
+                    large
+                }
+                media {
+                    nodes {
+                        title {
+                            english
+                        }
+                    }
+                }
+            }
+        }
+    }
+    `;
 
-    setTimeout(() => controller.abort(), 10000); //if server doesn't respond in 10 seconds, request will be aborted
-
-    return await fetch(`https://api.jikan.moe/v3/search/character?q=${name}&page=1`, { signal })
+    return await fetch(`https://graphql.anilist.co`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json',
+        },
+        body: JSON.stringify({
+            query
+        })
+    })
     .then(response => response.json())
-    .then(response => response.results.find((character)=>character.anime.find(anime => anime.name.toLowerCase().match(animeName))).image_url)
-    .catch(()=>null)
 }

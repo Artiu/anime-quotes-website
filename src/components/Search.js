@@ -36,11 +36,11 @@ export default function Search() {
                     }
                 }
                 else{
-                    const charactersPhotoToFetch = new Set(data.map(character => character.character));
-                    const setCopy = [...charactersPhotoToFetch];
-                    data.forEach((character)=>{
-                        character.delay = setCopy.indexOf(character.character);
-                    })
+                    // const charactersPhotoToFetch = new Set(data.map(character => character.character));
+                    // const setCopy = [...charactersPhotoToFetch];
+                    // data.forEach((character)=>{
+                    //     character.delay = setCopy.indexOf(character.character);
+                    // })
                     setQuotes(data);
                 }
             }
